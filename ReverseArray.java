@@ -1,28 +1,38 @@
-// Basic Java program that reverses an array 
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5}; // Sample array
 
-public class reverseArray { 
+        System.out.println("Original Array:");
+        printArray(arr);
 
-	// function that reverses array and stores it 
-	// in another array 
-	static void reverse(int a[], int n) 
-	{ 
-		int[] b = new int[n]; 
-		int j = n; 
-		for (int i = 0; i < n; i++) { 
-			b[j - 1] = a[i]; 
-			j = j - 1; 
-		} 
+        reverseArray(arr);
 
-		// printing the reversed array 
-		System.out.println("Reversed array is: \n"); 
-		for (int k = 0; k < n; k++) { 
-			System.out.println(b[k]); 
-		} 
-	} 
+        System.out.println("Reversed Array:");
+        printArray(arr);
+    }
 
-	public static void main(String[] args) 
-	{ 
-		int [] arr = {10, 20, 30, 40, 50}; 
-		reverse(arr, arr.length); 
-	} 
-} 
+    // Method to reverse the array
+    public static void reverseArray(int[] array) {
+        int start = 0;
+        int end = array.length - 1;
+
+        while (start < end) {
+            // Swap the elements at start and end indices
+            int temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+
+            // Move start index forward and end index backward
+            start++;
+            end--;
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] array) {
+        for (int element : array) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+}
